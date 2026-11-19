@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # Correction Fluid — AI Resume Tailor
 
 Correction Fluid compares a resume against a specific job description and tells you how to make it stand out.
 
+=======
+# Correction-Fluid
+This is my attempt at making an AI resume parser to help tailor my resume for different roles and positions that allow for more optimal application and interview processes through job description comparisons.
+>>>>>>> 0c7dcb61a2104e0eee03292a97781f951c079f39
 ## Features
 - **Upload or paste your resume.** Accepts PDF, DOCX or TXT (up to 8 MB), or pasted text.
 - **Match score (0–100)** plus scores for skills fit, experience, ATS keywords, impact & metrics, and clarity.
@@ -39,9 +44,12 @@ webapp/src/
   components/redline/    header, hero, inputs, loading state
   components/redline/results/  score dial, breakdown, keywords, edits, summary
 ```
+<<<<<<< HEAD
 
 ## Running locally
 ```bash
 cd backend && bun install && bun run dev     # needs ANTHROPIC_API_KEY in backend/.env
 cd webapp && bun install && bun run dev      # set VITE_BACKEND_URL=http://localhost:3000
 ```
+=======
+>>>>>>> 0c7dcb61a2104e0eee03292a97781f951c079f39
