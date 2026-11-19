@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Correction Fluid: warm paper, plum ink, and pink / purple brushwork. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --brand-wash: linear-gradient(110deg, hsl(329 82% 83%) 0%, hsl(316 70% 86%) 42%, hsl(273 67% 78%) 100%);
+    --brand-ink: hsl(283 42% 19%);
+    --foreground: 24 12% 10%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 24 12% 10%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 24 12% 10%;
+
+    --primary: 284 48% 38%;
+    --primary-foreground: 40 40% 98%;
+
+    --secondary: 36 22% 90%;
+    --secondary-foreground: 24 12% 14%;
+
+    --muted: 36 20% 91%;
+    --muted-foreground: 28 8% 42%;
+
+    --accent: 152 48% 30%;
+    --accent-foreground: 40 40% 98%;
+
+    --highlight: 320 75% 88%;
+    --ink: 24 14% 8%;
+    --ink-foreground: 40 30% 95%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 40 40% 98%;
+
+    --border: 34 16% 84%;
+    --input: 34 16% 80%;
+    --ring: 284 48% 38%;
+
+    --radius: 0.375rem;
+
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 24 12% 10%;
+    --sidebar-primary: 284 48% 38%;
+    --sidebar-primary-foreground: 40 40% 98%;
+    --sidebar-accent: 36 22% 90%;
+    --sidebar-accent-foreground: 24 12% 14%;
+    --sidebar-border: 34 16% 84%;
+    --sidebar-ring: 284 48% 38%;
+  }
+
+  .dark {
+    --background: 24 10% 7%;
+    --foreground: 40 25% 92%;
+    --card: 24 10% 10%;
+    --card-foreground: 40 25% 92%;
+    --popover: 24 10% 10%;
+    --popover-foreground: 40 25% 92%;
+    --primary: 289 68% 72%;
+    --primary-foreground: 24 10% 7%;
+    --secondary: 24 8% 16%;
+    --secondary-foreground: 40 25% 92%;
+    --muted: 24 8% 15%;
+    --muted-foreground: 34 10% 60%;
+    --accent: 152 45% 48%;
+    --accent-foreground: 24 10% 7%;
+    --highlight: 302 38% 44%;
+    --ink: 40 25% 92%;
+    --ink-foreground: 24 10% 7%;
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 40 25% 92%;
+    --border: 24 8% 20%;
+    --input: 24 8% 22%;
+    --ring: 289 68% 72%;
+    --sidebar-background: 24 10% 7%;
+    --sidebar-foreground: 40 25% 92%;
+    --sidebar-primary: 289 68% 72%;
+    --sidebar-primary-foreground: 24 10% 7%;
+    --sidebar-accent: 24 8% 16%;
+    --sidebar-accent-foreground: 40 25% 92%;
+    --sidebar-border: 24 8% 20%;
+    --sidebar-ring: 289 68% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 260px 300px at -3% 18%, hsl(277 57% 36% / 0.28) 0%, hsl(277 57% 36% / 0.13) 45%, transparent 74%),
+      radial-gradient(ellipse 340px 250px at 102% 8%, hsl(328 88% 88% / 0.85) 0%, hsl(328 88% 88% / 0.35) 48%, transparent 75%),
+      radial-gradient(ellipse 300px 260px at 102% 73%, hsl(280 60% 37% / 0.26) 0%, hsl(280 60% 37% / 0.1) 48%, transparent 75%),
+      radial-gradient(ellipse 340px 240px at 0% 88%, hsl(325 88% 89% / 0.85) 0%, hsl(325 88% 89% / 0.4) 45%, transparent 75%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--highlight));
+    color: hsl(var(--ink));
+  }
+}
+
+@layer components {
+  .paper-sheet {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow:
+      0 1px 0 hsl(var(--foreground) / 0.04),
+      0 12px 32px -16px hsl(var(--foreground) / 0.18);
+  }
+
+  .ruled {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 27px,
+      hsl(var(--primary) / 0.08) 27px,
+      hsl(var(--primary) / 0.08) 28px
+    );
+  }
+
+  .marker {
+    background: linear-gradient(
+      100deg,
+      transparent 0.2em,
+      hsl(var(--highlight) / 0.85) 0.3em,
+      hsl(var(--highlight) / 0.7) 95%,
+      transparent 100%
+    );
+    padding: 0 0.15em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .redline-strike {
+    text-decoration-line: line-through;
+    text-decoration-color: hsl(var(--primary));
+    text-decoration-thickness: 2px;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .correction-hero { max-width: 1680px; overflow: hidden; }
+  .hero-copy { max-width: 720px; }
+  .title-banner {
+    position: relative;
+    isolation: isolate;
+    padding: 30px 20px 38px;
+    color: hsl(283 42% 19%);
+  }
+  .title-banner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: 44% 12% 35% 10% / 12% 28% 14% 24%;
+    background: var(--brand-wash);
+    transform: rotate(-1.5deg);
+    box-shadow: 0 10px 28px -18px hsl(283 42% 30% / 0.3);
+  }
+  .panel-title-highlight {
+    background: var(--brand-wash);
+    color: var(--brand-ink);
+    padding: 3px 12px 5px;
+    border-radius: 12% 5% 15% 5% / 20% 25% 18% 22%;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  .banner-note { opacity: 0.75; }
+  .banner-underline {
+    display: block;
+    width: 82px;
+    height: 5px;
+    margin: 19px auto 0;
+    border-radius: 50%;
+    background: hsl(283 42% 19% / 0.7);
+    transform: rotate(-3deg);
+  }
+  .resume-showcase { display: none; }
+  @media (min-width: 1024px) {
+    .hero-copy { max-width: 580px; }
+    .resume-showcase {
+      display: block;
+      position: absolute;
+      top: 102px;
+      width: 175px;
+    }
+    .resume-showcase--left { left: 22px; transform: rotate(-7deg); }
+    .resume-showcase--right { right: 22px; transform: rotate(7deg); }
+    .resume-showcase-stack { position: relative; height: 290px; }
+    .resume-example { position: absolute; inset: 0; animation: resume-dissolve 12s ease-in-out infinite; }
+    .resume-example--1 { animation-delay: -6s; }
+    .resume-image-frame {
+      height: 252px;
+      overflow: hidden;
+      padding: 5px;
+      border: 1px solid hsl(var(--border));
+      border-radius: 4px;
+      background: hsl(var(--card));
+      box-shadow: 0 15px 35px -15px hsl(var(--foreground) / 0.24);
+    }
+    .resume-image-frame img { width: 100%; height: 100%; object-fit: contain; }
+    .resume-source { display: block; margin-top: 16px; text-align: center; font-size: 9px; }
+  }
+  @media (min-width: 1280px) {
+    .hero-copy { max-width: 760px; }
+    .resume-showcase { width: 200px; top: 115px; }
+    .resume-showcase--left { left: 30px; }
+    .resume-showcase--right { right: 30px; }
+    .resume-showcase-stack { height: 325px; }
+    .resume-image-frame { height: 288px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .resume-example { animation: none; }
+    .resume-example--1 { display: none; }
+  }
+}
+
+@keyframes resume-dissolve {
+  0%, 38%, 100% { opacity: 1; transform: translateY(0); }
+  48%, 88% { opacity: 0; transform: translateY(8px); }
+}
